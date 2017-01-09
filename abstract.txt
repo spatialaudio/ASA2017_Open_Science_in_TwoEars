@@ -7,23 +7,13 @@ project involved huge amounts of software, acoustical measurements, and data
 from listening tests. On the other hand it was obvious from the status of the
 auditory modelling community and the positive experience with the Auditory
 Modelling Toolbox that it would have a positive impact and foster progression
-afterwards. As there existed no ready solution to
-achieve this goal at the beginning of the project, different pathes were tested.
-Especially the provision of a solution for storing the data was challenging.
-Here, the goal was not only to provide long time accessibility of the data, but
-also to provide all partners with access to public and private data that is
-under revision control for developing was a mayor challenge.
-At the end, the project was able to provide all software and data, but struggled
-with applying the reproducible research principle to most of its papers.
-This contribution will discuss best practices for allowing reproducible research
-for large projects in the acoustic community and highlights problems that can
-occur and how to avoid them.
-
-For software developing a revision system was needed as well, but with git a
-solution was ready that provided all desired features. Here, most partners were
-in favor of private repositories hosted on university servers. One of the
-problems which this approach was that most of the published papers of Two!Ears
-were not able to follow the guidelines of reproducible research as most of them
-used some private revision of the software that was never made public together
-with the paper. Those problems led to the decision to switch to a public
-repositories for the developing of the whole software framework.
+afterwards. As there existed no ready solution to achieve this goal at the
+beginning of the project, different paths were tested.  Especially the provision
+of a solution for storing the data was challenging.  Here, the goal was not only
+to provide long time accessibility of the data, but also to provide all partners
+with access to public and private data that is under revision control for
+developing.  At the end, the project was able to provide most of its software
+and data publicly available, but struggled with applying the reproducible
+research principle to most of its papers.  This contribution will discuss best
+practices for allowing reproducible research for large projects in the acoustic
+community and highlights problems that can occur and how to avoid them.
