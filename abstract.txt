@@ -1,6 +1,6 @@
 Open Science in the Two!Ears Project – Experiences and Best Practices
 
-Two!Ears was an EU funded project for binaural auditory modeling with nine
+Two!Ears was an EU funded project for binaural auditory modeling with ten
 international partners involved. One of the project goals was to follow an Open Science
 approach in all stages. This turned out to be a challenging task as the project
 involved huge amounts of software, acoustical measurements, and data from
