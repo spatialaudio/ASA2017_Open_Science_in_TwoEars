@@ -1,0 +1,181 @@
+% AVAD @ Filmuniversiaet beamer theme
+
+%% ----- Beamer options -----
+\newif\ifavad@slidenumbers
+\avad@slidenumberstrue
+\DeclareOptionBeamer{noslidenumbers}{\avad@slidenumbersfalse}
+\ProcessOptionsBeamer
+
+
+%% ----- General setup -----
+\setbeamersize{text margin left=0.3cm,text margin right=0.3cm}
+\setbeamertemplate{items}[square]
+\setbeamertemplate{author in head/foot}{\insertshortauthor}
+\setbeamertemplate{title in head/foot}{\insertshorttitle}
+\setbeamertemplate{date in head/foot}{\insertshortdate}
+\ifavad@slidenumbers
+\setbeamertemplate{page number in head/foot}{\insertframenumber\,/\,\inserttotalframenumber}
+\fi
+\setbeamertemplate{headline}{} % no headlines
+\setbeamertemplate{navigation symbols}{} % no navigation symbols
+\setbeamercovered{transparent}
+
+
+%% ----- Hyperref -----
+\RequirePackage{hyperref}
+\hypersetup{
+  pdfstartview=Fit,
+  pdfpagelayout=SinglePage,
+  pdfpagemode=FullScreen, % open the resulting PDF in full-screen mode
+  colorlinks,urlcolor=red,linkcolor=red,citecolor=,
+  anchorcolor=,filecolor=,menucolor=,runcolor=,
+  pdfcreator={Audio-visual Application Design; LaTeX beamer class}
+}
+
+
+%% ---- Fonts ----
+\RequirePackage[T1]{fontenc}
+\RequirePackage{paratype}
+
+
+%% ---- Colors ----
+\RequirePackage{color}
+% Definitions of colors
+\definecolor{red}   {HTML} {F4826C}
+\definecolor{red2}  {HTML} {F2645D}
+\definecolor{black} {HTML} {414042}
+\definecolor{gray}  {HTML} {A7A9AC}
+\definecolor{blue}  {HTML} {0083C3} % blue from Two!Ears
+% Applying colors
+\setbeamercolor{alerted text}{fg=blue}
+\setbeamercolor{titlelike}{fg=blue}
+\setbeamercolor{structure}{fg=gray}
+\setbeamercolor{subtitle}{fg=gray}
+\setbeamercolor{framesubtitle}{fg=gray}
+\setbeamercolor{block body}{bg=red}
+\setbeamercolor{block title}{bg=white}
+\setbeamercolor{block body alerted}{}
+\setbeamercolor{block title alerted}{parent=alerted text}
+\setbeamercolor{block body example}{}
+\setbeamercolor{block title example}{parent=example text}
+\setbeamercolor{lower separation line head}{bg=gray}
+\setbeamercolor{title in head/foot}{fg=gray}
+\setbeamercolor{author in head/foot}{fg=gray}
+\setbeamercolor{date in head/foot}{fg=gray}
+\setbeamercolor{page number in head/foot}{fg=black}
+\setbeamercolor{section in head/foot}{fg=TeleSchwarz}
+\setbeamercolor{section in head/foot shaded}{fg=gray}
+\setbeamercolor{subsection in head/foot}{fg=black}
+\setbeamercolor{subsection in head/foot shaded}{fg=gray}
+
+
+%% ----- Frame title -----
+\setbeamercolor{frametitle}{fg=black}
+\setbeamertemplate{frametitle}
+{
+  \fontfamily{\rmdefault}\selectfont\insertframetitle\par%
+  {%
+    \ifx\insertframesubtitle\@empty%
+    \else%
+    {\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\insertframesubtitle\strut\par}%
+    \fi
+  }%
+  \vskip0ex%
+}
+
+
+%% ----- Title page -----
+\setbeamercolor{title}{fg=black,bg=white}
+\defbeamertemplate*{title page}{avad}[1][]
+{
+  \vbox{}
+  \vskip2em\par
+  \begin{centering}
+    \begin{beamercolorbox}[sep=8pt,#1]{title}% title
+      \vspace{0.1cm}\par
+      \fontfamily{\rmdefault}\fontsize{20}{22}\selectfont\inserttitle\par%
+      \vspace{0.75cm}\par%
+      \fontfamily{\sfdefault}\fontsize{11}{15}\selectfont\insertauthor\par%
+      \vspace{1cm}\par%
+      \fontsize{10}{13}\selectfont\insertinstitute\par%
+    \end{beamercolorbox}%
+    \vskip3em\par
+    \fontsize{7}{9}\selectfont Acoustics '17 Boston\\\insertdate, CC BY 4.0\par%
+  \end{centering}
+}
+\addtobeamertemplate{title page}{}{\addtocounter{framenumber}{-1}}
+% Redefine \maketitle to locally disable most parts of the headline and footline
+\def\maketitle{\ifbeamer@inframe\titlepage\else
+{
+\setbeamertemplate{page number in head/foot}{}
+\setbeamertemplate{background canvas}{\color{white}\rule{\paperwidth}{\paperheight}}
+\frame{\titlepage}
+}\fi}
+
+
+%% ----- Footer -----
+\setbeamertemplate{page number in head/foot}{\insertframenumber}
+\setbeamertemplate{footline}{\hfill \parbox{0.5cm}{\raisebox{0.2cm}{\usebeamertemplate*{page number in head/foot}}}}
+
+
+%% ----- Quotations -----
+\RequirePackage{tikz}
+\newcommand*\quotesize{90}
+\newcommand*{\openquote}
+  {\tikz[remember picture,overlay,xshift=9ex,yshift=-6.5ex]
+  \node (OQ) {\color{red!30}\fontfamily{\rmdefault}\fontsize{\quotesize}{\quotesize}\selectfont``};\kern0pt}
+\renewenvironment{quote}
+  {\fontfamily{\rmdefault}\selectfont
+  \color{red}
+  \itshape
+  \openquote
+  \list{}{\rightmargin 2cm \leftmargin 2cm}%
+  \item\relax}
+  {\endlist}
+
+
+%% ----- Bibliography -----
+% Use [1] instead of image in bibliography list
+\setbeamertemplate{bibliography item}{\insertbiblabel}
+
+
+%% ----- Appendix -----
+% Don't count the frames of the appendix (needs 2 [pdf]latex runs)
+% This is stolen from http://www.ensta.fr/~lelong/Latex/appendixnumberbeamer.sty
+\let\mainend\empty
+\let\appendixorig\appendix
+\def\appendix{
+  \edef\mainend{\theframenumber}%
+  \appendixorig%
+}
+\def\pageatend{
+  \ifx\mainend\@empty%
+  \else%
+  \immediate\write\@auxout{\string\global\string\@namedef{inserttotalframenumber}{\mainend}}%
+  \immediate\write\@auxout{\string\@writefile{nav}{\noexpand \headcommand {%
+    \noexpand \def\noexpand \inserttotalframenumber{\mainend}}}}%
+  \fi%
+}
+\AtEndDocument{\pageatend}
+
+
+%% ----- Tikz definitions -----
+\RequirePackage{tikz}
+\tikzstyle{system}=[draw, fill=gray, minimum size=2em, minimum width=1cm]
+\tikzstyle{signal}=[coordinate]
+
+%% ----- Command definitions -----
+\newcommand{\ft}{\footnotesize}
+\newcommand{\scs}{\scriptsize}
+\newcommand{\sm}{\small}
+%\RequirePackage{mathdefinitions}
+
+
+%% quite at the end, to be sure that \textwidth is already set correctly
+%% maybe there is a much better way TODO this?
+%\newlength\twocolumns
+%\twocolumns=\textwidth
+%\advance\twocolumns by -\columnsep
+
+
+% vim:softtabstop=2:shiftwidth=2:expandtab:textwidth=80

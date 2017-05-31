@@ -1,0 +1,126 @@
+\documentclass{beamer}
+
+\usetheme{avad}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb}
+\usepackage{array,multirow}
+
+%\graphicspath{%
+%{figs/}%
+%}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{Open Science in the Two!Ears Project -- Experiences and Best Practices}
+\author{Hagen Wierstorf$\,$\inst{1} \and
+        Fiete Winter\inst{2} \and
+        \textbf{Sascha Spors}\inst{2}}
+        \institute{\inst{1} Centre for Vision, Speech and Signal Processing, University of Surrey\\
+           \inst{2} Institute of Communications Engineering, University of Rostock}
+\date{26/06/2017}
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Introduction to Two!Ears}
+
+    \begin{itemize}
+        \item Scale of project, number of partner
+        \item Goal: common software framework to test different approaches and
+            see how things improve with the usage of single components
+    \end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Comparison with AMToolbox}
+
+    \begin{itemize}
+        \item AMToolbox was well established in psychoacoustic community
+        \item Collection of single models
+        \item Two!Ears needed a way to simply substitute them or get as many
+            features as possible
+    \end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Software depends on data}
+
+    \begin{itemize}
+        \item Software development is manageable using revision control, e.g. git
+        \item Huge dependency on data:
+            \begin{itemize}
+                \item HRIR/BRIR measurements for acoustic simulations
+                \item Data to train machine learning stages of CASA algorithms
+                    (localization, identification, segregation)
+                \item Listening test results
+            \end{itemize}
+        \item Data is collected and changed during the project
+        \item All partners need access to it
+        \item Not all data can be made publicly available
+        \item Need version control for the data as well to ensure everyone is
+            using the same version of the data
+    \end{itemize}
+
+    How to solve this?
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Approaches to data management}
+
+    \begin{itemize}
+        \item svn works, but working with branches becomes buggy
+        \item git does most probably not work as you will get very soon an out
+            of memory error on your server (as git puts everything in working
+            memory for packing before transmitting it)
+        \item Git Large File Storage (LFS) was released during the project, but
+            there was no working implementation to set it up on your own server
+        \item There were similar implementations from single users, like
+            git-media, git-annex
+        \item There have been two commercial providers during the time, but I
+            can't find them/remember there name
+        \item These two are new ones: \url{https://dataversioncontrol.com},
+            \url{http://www.bitkeeper.com/bam.html}
+    \end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Solution}
+
+    \begin{itemize}
+        \item Used a modified version of git-media for internal repo
+        \item Used svn for external repo
+        \item In both cases you can download single files
+        \item git-media hard to install, not everyone in the project was using
+            it
+        \item git-media still had some bugs
+    \end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Why we haven't published reproducible paper}
+
+    \begin{itemize}
+        \item Awareness was not the same for all members
+        \item At the beginning a lot of the software development was happening
+            at the partners side and papers were published using that
+            (unreleased) software
+        \item Should have made a workshop on that topic at the beginning of
+            project
+        \item Problem remains: it comes with additional time needed (at least at
+            the beginning, whereby later on you most probably benefit from it)
+    \end{itemize}
+
+\end{frame}
+
+
+\end{document}
