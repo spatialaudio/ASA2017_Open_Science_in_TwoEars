@@ -17,7 +17,7 @@
 \begin{document}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\title{Open Science in the Two!Ears Project -- Experiences and Best Practices}
+\title{\centering Open Science in the Two!Ears Project \\ Experiences and Best Practices}
 \author{Hagen Wierstorf$\,$\inst{1} \and
         Fiete Winter\inst{2} \and
         \textbf{Sascha Spors}\inst{2}}
@@ -41,10 +41,19 @@
 \begin{frame}{Comparison with AMToolbox}
 
     \begin{itemize}
-        \item AMToolbox was well established in psychoacoustic community
+        \item AMToolbox was well established in psychoacoustic community,
+            originating from the AABBA project
         \item Collection of single models
-        \item Two!Ears needed a way to simply substitute them or get as many
-            features as possible
+        \item 
+    \end{itemize}
+
+    Parts not compatible with the goal of Two!Ears:
+    \begin{itemize}
+        \item No block-based processing (needed for dynamically changing input
+            signals)
+        \item No clear separation in feature extraction and machine learning
+            (AMToolbox provides self-contained models, where it is hard to
+            gather features across those models)
     \end{itemize}
 
 \end{frame}
@@ -82,7 +91,7 @@
             memory for packing before transmitting it)
         \item Git Large File Storage (LFS) was released during the project, but
             there was no working implementation to set it up on your own server
-        \item There were similar implementations from single users, like
+        \item There were similar implementations from the community, like
             git-media, git-annex
         \item There have been two commercial providers during the time, but I
             can't find them/remember there name
@@ -98,7 +107,7 @@
     \begin{itemize}
         \item Used a modified version of git-media for internal repo
         \item Used svn for external repo
-        \item In both cases you can download single files
+        \item In both cases you can download single files and subdirectories
         \item git-media hard to install, not everyone in the project was using
             it
         \item git-media still had some bugs
@@ -118,6 +127,18 @@
             project
         \item Problem remains: it comes with additional time needed (at least at
             the beginning, whereby later on you most probably benefit from it)
+    \end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Conclusion}
+
+    \begin{itemize}
+        \item Extend of software framework to big to be handled only by acoustic
+            researchers $\Rightarrow$ loss of time and remaining problems in the
+            architecture of the code
+        \item Integrate a programmer into your proposal for such projects
     \end{itemize}
 
 \end{frame}
