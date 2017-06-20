@@ -4,7 +4,7 @@
 
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath,amssymb}
-\usepackage{array,multirow}
+\usepackage{tikz}
 
 %\graphicspath{%
 %{figs/}%
@@ -27,16 +27,70 @@
 \maketitle
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Introduction to Two!Ears}
+\begin{frame}{Two!Ears}
 
-    \begin{itemize}
-        \item Scale of project, number of partner (show logos of the different
-            universities?)
-        \item Goal: common software framework to test different approaches and
-            see how things improve with the usage of single components \\
-            Show a simplified version of the Two!Ears architecture (maybe from
-            DAGA 2016)
-    \end{itemize}
+    \begin{center}
+        \vspace{0.5cm}
+        \textbf{Computational framework for modelling active exploratory
+        listening that assigns meaning to auditory scenes}
+
+        \vspace{0.5cm}
+
+        \includegraphics[width=.05\textwidth]{fig/tuil}\hspace{0.2cm}
+        \includegraphics[width=.05\textwidth]{fig/tub}\hspace{0.2cm}
+        \includegraphics[width=.039\textwidth]{fig/dtu}\hspace{0.2cm}
+        \includegraphics[width=.04\textwidth]{fig/rub}\hspace{0.2cm}
+        \includegraphics[width=.06\textwidth]{fig/upmc}\hspace{0.2cm}
+        \includegraphics[width=.04\textwidth]{fig/cnrs}\hspace{0.2cm}
+        \includegraphics[width=.04\textwidth]{fig/uro}\hspace{0.2cm}
+        \includegraphics[width=.04\textwidth]{fig/usf}\hspace{0.2cm}
+        \includegraphics[width=.055\textwidth]{fig/tue}\hspace{0.2cm}
+        \includegraphics[width=.04\textwidth]{fig/rensselaer}
+
+        \vspace{1.0cm}
+
+        \begin{minipage}[b]{0.42\columnwidth}
+            \resizebox{.9\textwidth}{!}{%
+                \begin{tikzpicture}
+                    \draw (-1.75,0) rectangle (1.75,1.5); % binaural simulator
+                    \node[align=center] at (0,0.75) {Interactive binaural\\ signal acquisition};
+                    \draw (-1.75,2.5) rectangle (1.75,4); % auditory front-end
+                    \node[align=center] at (0,3.25) {Extraction of\\ auditory features};
+                    \draw (-3.5,5) rectangle (3.5,6.8); % blackboard
+                    \node[right] at (-3.4,6.45) {Extraction of meaning};
+                    \draw (-3.225,5.25) rectangle (-2.025,6);
+                    \node at (-2.625,5.625) {\ft Memory};
+                    \draw (-1.475,5.25) rectangle (-0.275,6);
+                    \node at (-0.875,5.625) {\ft Identity};
+                    \draw ( 0.275,5.25) rectangle ( 1.475,6);
+                    \node at (0.875,5.625) {\ft Location};
+                    \draw ( 2.025,5.25) rectangle ( 3.225,6);
+                    \node at (2.625,5.625) {\ft Decision};
+                    \draw[thick,->] (0,1.5) -- (0,2.5);
+                    \draw[thick,->] (-0.875,4) -- (-0.875,5.25);
+                    \draw[thick,->] ( 0.875,4) -- ( 0.875,5.25);
+                    \draw[thick] (2.625,5.25) -- (2.625,0.75);
+                    \draw[thick,->] (2.625,0.75) -- (1.75,0.75);
+                    \draw[thick,<->] (-2.025,5.625) -- (-1.475,5.625);
+                    \draw[thick,<->] (-0.275,5.625) -- ( 0.275,5.625);
+                    \draw[thick,<->] ( 1.475,5.625) -- ( 2.025,5.625);
+                \end{tikzpicture}
+            }
+        \end{minipage}
+        \hfill
+        \begin{minipage}[b]{.54\columnwidth}
+            \begin{itemize}
+                \item Test single components
+                \item Allow for feedback
+                \item Dynamic input signals
+            \end{itemize}
+            $\Rightarrow$ common software framework \\
+            $\Rightarrow$ common data
+
+            \vspace{1cm}
+
+        \end{minipage}
+    \end{center}
 
 \end{frame}
 
@@ -56,21 +110,18 @@
 \begin{frame}{Comparison with AMToolbox}
 
     \begin{itemize}
-        \item AABBA project started in \dots with the goal of applying binaural
-            models
-        \item Decided to create a free collection of binaural models as most of
-            them were not easily available
-        \item Nowadays, AMToolbox was well established in psychoacoustic community
-        \item Collection of single models
+        \item AABBA project started in 2009: \textbf{apply binaural models}
+        \item Needed open source software as most models were not available
+        \item Initiated collection of models: AMToolbox
     \end{itemize}
 
-    Parts not compatible with the goal of Two!Ears:
+    \vspace{1cm}
+
+    Parts not compatible with Two!Ears:
     \begin{itemize}
-        \item No block-based processing (needed for dynamically changing input
-            signals)
+        \item No block-based processing (needed for dynamic input signals)
         \item No clear separation in feature extraction and machine learning
-            (AMToolbox provides self-contained models, where it is hard to
-            gather features across those models)
+        \item Models cannot easily be connected and used together
     \end{itemize}
 
 \end{frame}
