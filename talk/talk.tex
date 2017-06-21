@@ -356,6 +356,35 @@
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Software conclusion}
+
+    Things that worked great:
+    \begin{itemize}
+        \item git and github excellent tools for collaborative software development
+        \item readthedocs good place for creating documentation
+    \end{itemize}
+
+    \vspace{0.6cm}
+
+    Proposal for future projects:
+    \begin{itemize}
+        \item Make a workshop on the topic at the beginning
+            \begin{itemize}
+                \item Everyone needs to know git
+                \item Agree on and introduce a forkflow
+            \end{itemize}
+        \item Include a software engineer for complex software to avoid
+            \begin{itemize}
+                \item Extra work for researchers
+                \item Usability problems of software
+                \item Untidy, complicated source code
+            \end{itemize}
+        \item Try to avoid usage of closed software (e.g. Matlab)
+    \end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Software depends on data}
 
     \begin{itemize}
@@ -378,35 +407,63 @@
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Approaches to data management}
+\begin{frame}{Possible approaches to data management}
 
     \begin{itemize}
-        \item svn works, but working with branches becomes buggy
-        \item git does most probably not work as you will get very soon an out
-            of memory error on your server (as git puts everything in working
-            memory for packing before transmitting it)
+        \item svn works, but branching becomes buggy
+        \item git will produce out of memory errors on your server
+            %(as git puts everything in working memory for packing before transmitting it)
         \item Git Large File Storage (LFS) was released during the project, but
             there was no working implementation to set it up on your own server
-        \item There were similar implementations from the community, like
+        \item Similar implementations from the community, like
             git-media, git-annex
-        \item There have been two commercial providers during the time, but I
-            can't find them/remember there name
-        \item These two are new ones: \url{https://dataversioncontrol.com},
-            \url{http://www.bitkeeper.com/bam.html}
+        \item Commercial providers like BitKeeper
     \end{itemize}
 
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Solution}
+\begin{frame}[fragile]{Our solution to data management}
 
     \begin{itemize}
-        \item Used a modified version of git-media for internal repo
+        \item Used a modified version of git-media for internal repo \\
+            {\small\url{https://github.com/TWOEARS/git-media}}
         \item Used svn for external repo
         \item In both cases you can download single files and subdirectories
-        \item git-media hard to install, not everyone in the project was using
-            it
-        \item git-media still had some bugs
+    \end{itemize}
+
+    \vspace{0.5cm}
+
+    \begin{minipage}[b]{.4\columnwidth}
+        \includegraphics[width=.9\textwidth]{fig/redmine}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[b]{.59\columnwidth}
+        \small
+        \texttt{fname = db.getFile('path/to/file');} \\
+        \texttt{sig = audioread(fname);}
+
+        \vspace{1cm}
+
+    \end{minipage}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Data conclusion}
+
+    Things that worked ok:
+    \begin{itemize}
+        \item svn + Redmine for public data, including single file downloads
+        \item zenodo for releasing single data sets
+    \end{itemize}
+
+    \vspace{0.6cm}
+
+    Proposal for future projects:
+    \begin{itemize}
+        \item Avoid complicated setups (like our git-media)
+        \item Hope for better tools
     \end{itemize}
 
 \end{frame}
@@ -423,18 +480,6 @@
             project
         \item Problem remains: it comes with additional time needed (at least at
             the beginning, whereby later on you most probably benefit from it)
-    \end{itemize}
-
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Conclusion}
-
-    \begin{itemize}
-        \item Extend of software framework to big to be handled only by acoustic
-            researchers $\Rightarrow$ loss of time and remaining problems in the
-            architecture of the code
-        \item Integrate a programmer into your proposal for such projects
     \end{itemize}
 
 \end{frame}
