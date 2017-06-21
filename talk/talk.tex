@@ -370,8 +370,11 @@
 
     Things that worked great:
     \begin{itemize}
-        \item git and github excellent tools for collaborative software development
-        \item readthedocs good place for creating documentation
+        \item \href{https://git-scm.com}{git} and
+            \href{https://github.com}{github} excellent tools for collaborative
+            software development
+        \item \href{https://readthedocs.org}{readthedocs} good place for
+            creating documentation
     \end{itemize}
 
     \vspace{0.6cm}
@@ -411,14 +414,16 @@
 \begin{frame}{Possible approaches to data management}
 
     \begin{itemize}
-        \item svn works, but branching becomes buggy
-        \item git will produce out of memory errors on your server
+        \item \href{https://subversion.apache.org}{svn} works, but branching becomes buggy
+        \item \href{https://git-scm.com}{git} will produce out of memory errors on your server
             %(as git puts everything in working memory for packing before transmitting it)
-        \item Git Large File Storage (LFS) was released during the project, but
+            \item \href{https://git-lfs.github.com}{Git Large File Storage} was released during the project, but
             there was no working implementation to set it up on your own server
         \item Similar implementations from the community, like
-            git-media, git-annex
-        \item Commercial providers like BitKeeper
+            \href{https://github.com/alebedev/git-media}{git-media},
+            \href{https://git-annex.branchable.com}{git-annex}
+        \item Commercial providers like
+            \href{http://www.bitkeeper.com/bam.html}{BitKeeper}
     \end{itemize}
 
 \end{frame}
@@ -427,9 +432,12 @@
 \begin{frame}[fragile]{Our solution to data management}
 
     \begin{itemize}
-        \item Used a modified version of git-media for internal repo \\
-            {\small\url{https://github.com/TWOEARS/git-media}}
-        \item Used svn for external repo
+        \item Used a \href{https://github.com/TWOEARS/git-media}{modified version
+            of git-media} for internal repo \\
+        \item Used \href{https://subversion.apache.org}{svn} and
+            \href{http://www.redmine.org}{Redmine} for
+            \href{https://dev.qu.tu-berlin.de/projects/twoears-getdata/repository}{public
+            repo}
         \item In both cases you can download single files and subdirectories
     \end{itemize}
 
@@ -455,8 +463,11 @@
 
     Things that worked ok:
     \begin{itemize}
-        \item svn + Redmine for public data, including single file downloads
-        \item zenodo for releasing single data sets
+        \item \href{https://subversion.apache.org}{svn} +
+            \href{http://www.redmine.org}{Redmine} for
+            \href{https://dev.qu.tu-berlin.de/projects/twoears-getdata/repository}{public
+            data}
+        \item \href{https://zenodo.org}{zenodo} for releasing single data sets
     \end{itemize}
 
     \vspace{0.6cm}
