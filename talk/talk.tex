@@ -29,68 +29,55 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Two!Ears}
 
-    \begin{center}
-        \vspace{0.5cm}
-        \textbf{Computational framework for modelling active exploratory
-        listening that assigns meaning to auditory scenes}
+    \centering
+    \vspace{0.5cm}
+    \textbf{Computational framework for modelling active exploratory
+    listening that assigns meaning to auditory scenes}
 
-        \vspace{0.5cm}
+    \vspace{1.0cm}
 
-        \includegraphics[width=.05\textwidth]{fig/tuil}\hspace{0.2cm}
-        \includegraphics[width=.05\textwidth]{fig/tub}\hspace{0.2cm}
-        \includegraphics[width=.039\textwidth]{fig/dtu}\hspace{0.2cm}
-        \includegraphics[width=.04\textwidth]{fig/rub}\hspace{0.2cm}
-        \includegraphics[width=.06\textwidth]{fig/upmc}\hspace{0.2cm}
-        \includegraphics[width=.04\textwidth]{fig/cnrs}\hspace{0.2cm}
-        \includegraphics[width=.04\textwidth]{fig/uro}\hspace{0.2cm}
-        \includegraphics[width=.04\textwidth]{fig/usf}\hspace{0.2cm}
-        \includegraphics[width=.055\textwidth]{fig/tue}\hspace{0.2cm}
-        \includegraphics[width=.04\textwidth]{fig/rensselaer}
+    \begin{minipage}[b]{0.42\columnwidth}
+        \resizebox{\textwidth}{!}{%
+            \begin{tikzpicture}
+                \draw (-1.75,0) rectangle (1.75,1.5); % binaural simulator
+                \node[align=center] at (0,0.75) {Interactive binaural\\ signal acquisition};
+                \draw (-1.75,2.5) rectangle (1.75,4); % auditory front-end
+                \node[align=center] at (0,3.25) {Extraction of\\ auditory features};
+                \draw (-3.5,5) rectangle (3.5,6.8); % blackboard
+                \node[right] at (-3.4,6.45) {Extraction of meaning};
+                \draw (-3.225,5.25) rectangle (-2.025,6);
+                \node at (-2.625,5.625) {\ft Memory};
+                \draw (-1.475,5.25) rectangle (-0.275,6);
+                \node at (-0.875,5.625) {\ft Identity};
+                \draw ( 0.275,5.25) rectangle ( 1.475,6);
+                \node at (0.875,5.625) {\ft Location};
+                \draw ( 2.025,5.25) rectangle ( 3.225,6);
+                \node at (2.625,5.625) {\ft Decision};
+                \draw[thick,->] (0,1.5) -- (0,2.5);
+                \draw[thick,->] (-0.875,4) -- (-0.875,5.25);
+                \draw[thick,->] ( 0.875,4) -- ( 0.875,5.25);
+                \draw[thick] (2.625,5.25) -- (2.625,0.75);
+                \draw[thick,->] (2.625,0.75) -- (1.75,0.75);
+                \draw[thick,<->] (-2.025,5.625) -- (-1.475,5.625);
+                \draw[thick,<->] (-0.275,5.625) -- ( 0.275,5.625);
+                \draw[thick,<->] ( 1.475,5.625) -- ( 2.025,5.625);
+            \end{tikzpicture}
+        }
+    \end{minipage}
+    \hfill
+    \begin{minipage}[b]{.54\columnwidth}
+        \begin{itemize}
+            \item 9 international partners
+            \item Test single components
+            \item Allow for feedback
+            \item Dynamic input signals
+        \end{itemize}
+        $\Rightarrow$ common software framework \\
+        $\Rightarrow$ common data
 
-        \vspace{1.0cm}
+        \vspace{1cm}
 
-        \begin{minipage}[b]{0.42\columnwidth}
-            \resizebox{.9\textwidth}{!}{%
-                \begin{tikzpicture}
-                    \draw (-1.75,0) rectangle (1.75,1.5); % binaural simulator
-                    \node[align=center] at (0,0.75) {Interactive binaural\\ signal acquisition};
-                    \draw (-1.75,2.5) rectangle (1.75,4); % auditory front-end
-                    \node[align=center] at (0,3.25) {Extraction of\\ auditory features};
-                    \draw (-3.5,5) rectangle (3.5,6.8); % blackboard
-                    \node[right] at (-3.4,6.45) {Extraction of meaning};
-                    \draw (-3.225,5.25) rectangle (-2.025,6);
-                    \node at (-2.625,5.625) {\ft Memory};
-                    \draw (-1.475,5.25) rectangle (-0.275,6);
-                    \node at (-0.875,5.625) {\ft Identity};
-                    \draw ( 0.275,5.25) rectangle ( 1.475,6);
-                    \node at (0.875,5.625) {\ft Location};
-                    \draw ( 2.025,5.25) rectangle ( 3.225,6);
-                    \node at (2.625,5.625) {\ft Decision};
-                    \draw[thick,->] (0,1.5) -- (0,2.5);
-                    \draw[thick,->] (-0.875,4) -- (-0.875,5.25);
-                    \draw[thick,->] ( 0.875,4) -- ( 0.875,5.25);
-                    \draw[thick] (2.625,5.25) -- (2.625,0.75);
-                    \draw[thick,->] (2.625,0.75) -- (1.75,0.75);
-                    \draw[thick,<->] (-2.025,5.625) -- (-1.475,5.625);
-                    \draw[thick,<->] (-0.275,5.625) -- ( 0.275,5.625);
-                    \draw[thick,<->] ( 1.475,5.625) -- ( 2.025,5.625);
-                \end{tikzpicture}
-            }
-        \end{minipage}
-        \hfill
-        \begin{minipage}[b]{.54\columnwidth}
-            \begin{itemize}
-                \item Test single components
-                \item Allow for feedback
-                \item Dynamic input signals
-            \end{itemize}
-            $\Rightarrow$ common software framework \\
-            $\Rightarrow$ common data
-
-            \vspace{1cm}
-
-        \end{minipage}
-    \end{center}
+    \end{minipage}
 
 \end{frame}
 
