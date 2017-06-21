@@ -124,11 +124,234 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Two!Ears auditory model}
 
-    \begin{itemize}
-        \item Explain the development of the model
-        \item Problem: complex structure, semi-independent components
-        \item Show github screenshot
-    \end{itemize}
+    \vspace{1cm}
+
+    \begin{minipage}[b]{0.42\columnwidth}
+        \resizebox{\textwidth}{!}{%
+            \begin{tikzpicture}
+                \draw[color=red] (-1.75,0) rectangle (1.75,1.5); % binaural simulator
+                \node[align=center,color=red] at (0,0.75) {Interactive binaural\\ signal acquisition};
+                \draw (-1.75,2.5) rectangle (1.75,4); % auditory front-end
+                \node[align=center] at (0,3.25) {Extraction of\\ auditory features};
+                \draw (-3.5,5) rectangle (3.5,6.8); % blackboard
+                \node[right] at (-3.4,6.45) {Extraction of meaning};
+                \draw (-3.225,5.25) rectangle (-2.025,6);
+                \node at (-2.625,5.625) {\ft Memory};
+                \draw (-1.475,5.25) rectangle (-0.275,6);
+                \node at (-0.875,5.625) {\ft Identity};
+                \draw ( 0.275,5.25) rectangle ( 1.475,6);
+                \node at (0.875,5.625) {\ft Location};
+                \draw ( 2.025,5.25) rectangle ( 3.225,6);
+                \node at (2.625,5.625) {\ft Decision};
+                \draw[thick,->] (0,1.5) -- (0,2.5);
+                \draw[thick,->] (-0.875,4) -- (-0.875,5.25);
+                \draw[thick,->] ( 0.875,4) -- ( 0.875,5.25);
+                \draw[thick] (2.625,5.25) -- (2.625,0.75);
+                \draw[thick,->] (2.625,0.75) -- (1.75,0.75);
+                \draw[thick,<->] (-2.025,5.625) -- (-1.475,5.625);
+                \draw[thick,<->] (-0.275,5.625) -- ( 0.275,5.625);
+                \draw[thick,<->] ( 1.475,5.625) -- ( 2.025,5.625);
+            \end{tikzpicture}
+        }
+    \end{minipage}
+    \hfill
+    \begin{minipage}[b]{0.56\columnwidth}
+
+        \centering
+        \includegraphics[width=.9\textwidth]{fig/binaural-simulator}
+
+        \begin{itemize}
+            \item Standalone ready
+            \item Defined interface to other modules
+        \end{itemize}
+
+    \end{minipage}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Two!Ears auditory model}
+
+    \vspace{1cm}
+
+    \begin{minipage}[b]{0.42\columnwidth}
+        \resizebox{\textwidth}{!}{%
+            \begin{tikzpicture}
+                \draw[color=red] (-1.75,0) rectangle (1.75,1.5); % binaural simulator
+                \node[align=center,color=red] at (0,0.75) {Robot};
+                \draw (-1.75,2.5) rectangle (1.75,4); % auditory front-end
+                \node[align=center] at (0,3.25) {Extraction of\\ auditory features};
+                \draw (-3.5,5) rectangle (3.5,6.8); % blackboard
+                \node[right] at (-3.4,6.45) {Extraction of meaning};
+                \draw (-3.225,5.25) rectangle (-2.025,6);
+                \node at (-2.625,5.625) {\ft Memory};
+                \draw (-1.475,5.25) rectangle (-0.275,6);
+                \node at (-0.875,5.625) {\ft Identity};
+                \draw ( 0.275,5.25) rectangle ( 1.475,6);
+                \node at (0.875,5.625) {\ft Location};
+                \draw ( 2.025,5.25) rectangle ( 3.225,6);
+                \node at (2.625,5.625) {\ft Decision};
+                \draw[thick,->] (0,1.5) -- (0,2.5);
+                \draw[thick,->] (-0.875,4) -- (-0.875,5.25);
+                \draw[thick,->] ( 0.875,4) -- ( 0.875,5.25);
+                \draw[thick] (2.625,5.25) -- (2.625,0.75);
+                \draw[thick,->] (2.625,0.75) -- (1.75,0.75);
+                \draw[thick,<->] (-2.025,5.625) -- (-1.475,5.625);
+                \draw[thick,<->] (-0.275,5.625) -- ( 0.275,5.625);
+                \draw[thick,<->] ( 1.475,5.625) -- ( 2.025,5.625);
+            \end{tikzpicture}
+        }
+    \end{minipage}
+    \hfill
+    \begin{minipage}[b]{0.56\columnwidth}
+
+        \centering
+        \includegraphics[width=.575\textwidth]{fig/robot}
+
+    \end{minipage}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Two!Ears auditory model}
+
+    \vspace{1cm}
+
+    \begin{minipage}[b]{0.42\columnwidth}
+        \resizebox{\textwidth}{!}{%
+            \begin{tikzpicture}
+                \draw (-1.75,0) rectangle (1.75,1.5); % binaural simulator
+                \node[align=center] at (0,0.75) {Interactive binaural\\ signal acquisition};
+                \draw[color=red] (-1.75,2.5) rectangle (1.75,4); % auditory front-end
+                \node[align=center,color=red] at (0,3.25) {Extraction of\\ auditory features};
+                \draw (-3.5,5) rectangle (3.5,6.8); % blackboard
+                \node[right] at (-3.4,6.45) {Extraction of meaning};
+                \draw (-3.225,5.25) rectangle (-2.025,6);
+                \node at (-2.625,5.625) {\ft Memory};
+                \draw (-1.475,5.25) rectangle (-0.275,6);
+                \node at (-0.875,5.625) {\ft Identity};
+                \draw ( 0.275,5.25) rectangle ( 1.475,6);
+                \node at (0.875,5.625) {\ft Location};
+                \draw ( 2.025,5.25) rectangle ( 3.225,6);
+                \node at (2.625,5.625) {\ft Decision};
+                \draw[thick,->] (0,1.5) -- (0,2.5);
+                \draw[thick,->] (-0.875,4) -- (-0.875,5.25);
+                \draw[thick,->] ( 0.875,4) -- ( 0.875,5.25);
+                \draw[thick] (2.625,5.25) -- (2.625,0.75);
+                \draw[thick,->] (2.625,0.75) -- (1.75,0.75);
+                \draw[thick,<->] (-2.025,5.625) -- (-1.475,5.625);
+                \draw[thick,<->] (-0.275,5.625) -- ( 0.275,5.625);
+                \draw[thick,<->] ( 1.475,5.625) -- ( 2.025,5.625);
+            \end{tikzpicture}
+        }
+    \end{minipage}
+    \hfill
+    \begin{minipage}[b]{0.56\columnwidth}
+
+        \centering
+        \includegraphics[width=.9\textwidth]{fig/auditory-front-end}
+
+        \begin{itemize}
+            \item Standalone ready
+            \item Provides auditory features
+        \end{itemize}
+
+    \end{minipage}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Two!Ears auditory model}
+
+    \vspace{1cm}
+
+    \begin{minipage}[b]{0.42\columnwidth}
+        \resizebox{\textwidth}{!}{%
+            \begin{tikzpicture}
+                \draw (-1.75,0) rectangle (1.75,1.5); % binaural simulator
+                \node[align=center] at (0,0.75) {Interactive binaural\\ signal acquisition};
+                \draw (-1.75,2.5) rectangle (1.75,4); % auditory front-end
+                \node[align=center] at (0,3.25) {Extraction of\\ auditory features};
+                \draw[color=red] (-3.5,5) rectangle (3.5,6.8); % blackboard
+                \node[right,color=red] at (-3.4,6.45) {Extraction of meaning};
+                \draw (-3.225,5.25) rectangle (-2.025,6);
+                \node at (-2.625,5.625) {\ft Memory};
+                \draw (-1.475,5.25) rectangle (-0.275,6);
+                \node at (-0.875,5.625) {\ft Identity};
+                \draw ( 0.275,5.25) rectangle ( 1.475,6);
+                \node at (0.875,5.625) {\ft Location};
+                \draw ( 2.025,5.25) rectangle ( 3.225,6);
+                \node at (2.625,5.625) {\ft Decision};
+                \draw[thick,->] (0,1.5) -- (0,2.5);
+                \draw[thick,->] (-0.875,4) -- (-0.875,5.25);
+                \draw[thick,->] ( 0.875,4) -- ( 0.875,5.25);
+                \draw[thick] (2.625,5.25) -- (2.625,0.75);
+                \draw[thick,->] (2.625,0.75) -- (1.75,0.75);
+                \draw[thick,<->] (-2.025,5.625) -- (-1.475,5.625);
+                \draw[thick,<->] (-0.275,5.625) -- ( 0.275,5.625);
+                \draw[thick,<->] ( 1.475,5.625) -- ( 2.025,5.625);
+            \end{tikzpicture}
+        }
+    \end{minipage}
+    \hfill
+    \begin{minipage}[b]{0.56\columnwidth}
+
+        \centering
+        \includegraphics[width=.9\textwidth]{fig/blackboard-system}
+
+        \begin{itemize}
+            \item Independent knowledge sources
+            \item Needs management
+        \end{itemize}
+
+    \end{minipage}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Two!Ears auditory model}
+
+    \vspace{1cm}
+
+    \begin{minipage}[b]{0.42\columnwidth}
+        \resizebox{\textwidth}{!}{%
+            \begin{tikzpicture}
+                \draw (-1.75,0) rectangle (1.75,1.5); % binaural simulator
+                \node[align=center] at (0,0.75) {Interactive binaural\\ signal acquisition};
+                \draw (-1.75,2.5) rectangle (1.75,4); % auditory front-end
+                \node[align=center] at (0,3.25) {Extraction of\\ auditory features};
+                \draw (-3.5,5) rectangle (3.5,6.8); % blackboard
+                \node[right] at (-3.4,6.45) {Extraction of meaning};
+                \draw (-3.225,5.25) rectangle (-2.025,6);
+                \node at (-2.625,5.625) {\ft Memory};
+                \draw[color=red] (-1.475,5.25) rectangle (-0.275,6);
+                \node[color=red] at (-0.875,5.625) {\ft Identity};
+                \draw ( 0.275,5.25) rectangle ( 1.475,6);
+                \node at (0.875,5.625) {\ft Location};
+                \draw ( 2.025,5.25) rectangle ( 3.225,6);
+                \node at (2.625,5.625) {\ft Decision};
+                \draw[thick,->] (0,1.5) -- (0,2.5);
+                \draw[thick,->] (-0.875,4) -- (-0.875,5.25);
+                \draw[thick,->] ( 0.875,4) -- ( 0.875,5.25);
+                \draw[thick] (2.625,5.25) -- (2.625,0.75);
+                \draw[thick,->] (2.625,0.75) -- (1.75,0.75);
+                \draw[thick,<->] (-2.025,5.625) -- (-1.475,5.625);
+                \draw[thick,<->] (-0.275,5.625) -- ( 0.275,5.625);
+                \draw[thick,<->] ( 1.475,5.625) -- ( 2.025,5.625);
+            \end{tikzpicture}
+        }
+    \end{minipage}
+    \hfill
+    \begin{minipage}[b]{0.56\columnwidth}
+
+        \centering
+        \includegraphics[width=.9\textwidth]{fig/auditory-machine-learning-training}
+
+        \begin{itemize}
+            \item Training modules for machine learning
+        \end{itemize}
+
+    \end{minipage}
 
 \end{frame}
 
