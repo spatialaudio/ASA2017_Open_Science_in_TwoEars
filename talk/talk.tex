@@ -5,6 +5,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath,amssymb}
 \usepackage{tikz}
+\usetikzlibrary{positioning, shadows}
 
 \newcommand{\haltpagenumber}{\addtocounter{framenumber}{-1}}
 
@@ -12,6 +13,7 @@
 %{figs/}%
 %}
 
+\tikzstyle{box}=[draw=black, fill=structure.fg!50, thick, rounded corners=4pt, minimum width=35mm, minimum height=15mm, anchor=east]
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -27,6 +29,32 @@
            \inst{2} Institute of Communications Engineering, University of Rostock}
 \date{26/06/2017}
 \maketitle
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{The Elements of Open Science}
+
+\begin{tikzpicture}[node distance=4mm and 4mm]
+\node[box] (source) {Open Source};
+\node[box, right=of source] (data) {Open Data};
+\node[box, right=of data] (access) {Open Access};
+\node[box, below=of source] (methodology) {Open Methodology};
+\node[box, below=of data] (notebook) {\shortstack{Open Notebook \\ Science}};
+\node[box, below=of access] (edu) {\shortstack{Open Educational \\ Resources}};
+\node[box, below=of methodology.south east] (review) {Open Peer Review};
+\node[box, below=of edu.south west] (reserach) {\shortstack{Open Research}};
+\end{tikzpicture}
+
+
+\vfill
+
+\begin{itemize}
+\item Requires systematic management of research data
+\item Open science by itself does not ensure the ease of reproducibility
+\end{itemize}
+
+\end{frame}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Two!Ears}
@@ -60,9 +88,9 @@
                 \draw[thick,->] ( 0.875,4) -- ( 0.875,5.25);
                 \draw[thick] (2.625,5.25) -- (2.625,0.75);
                 \draw[thick,->] (2.625,0.75) -- (1.75,0.75);
-                \draw[thick,<->] (-2.025,5.625) -- (-1.475,5.625);
+                % \draw[thick,<->] (-2.025,5.625) -- (-1.475,5.625);
                 \draw[thick,<->] (-0.275,5.625) -- ( 0.275,5.625);
-                \draw[thick,<->] ( 1.475,5.625) -- ( 2.025,5.625);
+                % \draw[thick,<->] ( 1.475,5.625) -- ( 2.025,5.625);
             \end{tikzpicture}
         }
     \end{minipage}
@@ -70,12 +98,11 @@
     \begin{minipage}[b]{.54\columnwidth}
         \begin{itemize}
             \item 9 international partners
-            \item Test single components
-            \item Allow for feedback
-            \item Dynamic input signals
+            \item Scenario-based development \\ and evaluation
+            \item Modular architecture
+            \item Simulated/real-world input
         \end{itemize}
-        $\Rightarrow$ \textbf{common software} \\
-        $\Rightarrow$ \textbf{common data}
+        $\Rightarrow$ \textbf{open source software and data}
 
         \vspace{1cm}
 
@@ -83,17 +110,6 @@
 
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Open Science}
-
-    Add maybe a slide for an introduction to Open Science
-
-    \begin{itemize}
-        \item Introduction
-        \item Why it would be a good decision for Two!Ears
-    \end{itemize}
-
-\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Comparison with AMToolbox}
@@ -104,19 +120,19 @@
     \vspace{0.1cm}
     \begin{itemize}
         \item AABBA project started in 2009: \textbf{apply binaural models}
-        \item Model source code rarely available
+        \item Source code of models rarely available
         \item Initiated open collection of models: \\
             {\small\url{http://amtoolbox.sourceforge.net}}
     \end{itemize}
 
     \vspace{0.6cm}
 
-    Additional required features by Two!Ears
+    Additional features required by Two!Ears
     \vspace{0.1cm}
     \begin{itemize}
         \item Block-based processing
         \item Clear separation in feature extraction and machine learning
-        \item Easy combination of different models
+        \item Seamless combination of different approaches
         \item Initiated dedicated modeling approach: \\
             {\small\url{http://docs.twoears.eu}}
     \end{itemize}
@@ -124,7 +140,8 @@
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Two!Ears auditory model}
+\begin{frame}{Two!Ears Auditory Model}
+\framesubtitle{Binaural Simulator}
 
     \vspace{1cm}
 
@@ -150,9 +167,9 @@
                 \draw[thick,->] ( 0.875,4) -- ( 0.875,5.25);
                 \draw[thick] (2.625,5.25) -- (2.625,0.75);
                 \draw[thick,->] (2.625,0.75) -- (1.75,0.75);
-                \draw[thick,<->] (-2.025,5.625) -- (-1.475,5.625);
+                %\draw[thick,<->] (-2.025,5.625) -- (-1.475,5.625);
                 \draw[thick,<->] (-0.275,5.625) -- ( 0.275,5.625);
-                \draw[thick,<->] ( 1.475,5.625) -- ( 2.025,5.625);
+                %\draw[thick,<->] ( 1.475,5.625) -- ( 2.025,5.625);
             \end{tikzpicture}
         }
     \end{minipage}
@@ -163,8 +180,8 @@
         \includegraphics[width=.9\textwidth]{fig/binaural-simulator}
 
         \begin{itemize}
-            \item Standalone ready
-            \item Defined interface to other modules
+        	    \item Defined interface to other modules
+            \item May be used standalone
         \end{itemize}
 
     \end{minipage}
@@ -172,7 +189,8 @@
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Two!Ears auditory model}
+\begin{frame}{Two!Ears Auditory Model}
+\framesubtitle{Real-World input by robot}
 
     \haltpagenumber
 
@@ -200,9 +218,9 @@
                 \draw[thick,->] ( 0.875,4) -- ( 0.875,5.25);
                 \draw[thick] (2.625,5.25) -- (2.625,0.75);
                 \draw[thick,->] (2.625,0.75) -- (1.75,0.75);
-                \draw[thick,<->] (-2.025,5.625) -- (-1.475,5.625);
+                %\draw[thick,<->] (-2.025,5.625) -- (-1.475,5.625);
                 \draw[thick,<->] (-0.275,5.625) -- ( 0.275,5.625);
-                \draw[thick,<->] ( 1.475,5.625) -- ( 2.025,5.625);
+                %\draw[thick,<->] ( 1.475,5.625) -- ( 2.025,5.625);
             \end{tikzpicture}
         }
     \end{minipage}
@@ -217,7 +235,8 @@
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Two!Ears auditory model}
+\begin{frame}{Two!Ears Auditory Model}
+\framesubtitle{Auditory front-end}
 
     \haltpagenumber
 
@@ -245,9 +264,9 @@
                 \draw[thick,->] ( 0.875,4) -- ( 0.875,5.25);
                 \draw[thick] (2.625,5.25) -- (2.625,0.75);
                 \draw[thick,->] (2.625,0.75) -- (1.75,0.75);
-                \draw[thick,<->] (-2.025,5.625) -- (-1.475,5.625);
+                %\draw[thick,<->] (-2.025,5.625) -- (-1.475,5.625);
                 \draw[thick,<->] (-0.275,5.625) -- ( 0.275,5.625);
-                \draw[thick,<->] ( 1.475,5.625) -- ( 2.025,5.625);
+                %\draw[thick,<->] ( 1.475,5.625) -- ( 2.025,5.625);
             \end{tikzpicture}
         }
     \end{minipage}
@@ -258,8 +277,8 @@
         \includegraphics[width=.9\textwidth]{fig/auditory-front-end}
 
         \begin{itemize}
-            \item Standalone ready
-            \item Provides auditory features
+            \item Extracts auditory features
+            \item May be used standalone
         \end{itemize}
 
     \end{minipage}
@@ -267,7 +286,8 @@
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Two!Ears auditory model}
+\begin{frame}{Two!Ears Auditory Model}
+\framesubtitle{Blackboard system}
 
     \haltpagenumber
 
@@ -295,9 +315,9 @@
                 \draw[thick,->] ( 0.875,4) -- ( 0.875,5.25);
                 \draw[thick] (2.625,5.25) -- (2.625,0.75);
                 \draw[thick,->] (2.625,0.75) -- (1.75,0.75);
-                \draw[thick,<->] (-2.025,5.625) -- (-1.475,5.625);
+                %\draw[thick,<->] (-2.025,5.625) -- (-1.475,5.625);
                 \draw[thick,<->] (-0.275,5.625) -- ( 0.275,5.625);
-                \draw[thick,<->] ( 1.475,5.625) -- ( 2.025,5.625);
+                %\draw[thick,<->] ( 1.475,5.625) -- ( 2.025,5.625);
             \end{tikzpicture}
         }
     \end{minipage}
@@ -308,8 +328,8 @@
         \includegraphics[width=.9\textwidth]{fig/blackboard-system}
 
         \begin{itemize}
-            \item Independent knowledge sources
-            \item Needs scheduling
+            \item Knowledge sources for various tasks
+            \item Scheduler
         \end{itemize}
 
     \end{minipage}
@@ -317,7 +337,8 @@
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Two!Ears auditory model}
+\begin{frame}{Two!Ears Auditory Model}
+\framesubtitle{Training and testing pipeline}
 
     \haltpagenumber
 
@@ -345,9 +366,9 @@
                 \draw[thick,->] ( 0.875,4) -- ( 0.875,5.25);
                 \draw[thick] (2.625,5.25) -- (2.625,0.75);
                 \draw[thick,->] (2.625,0.75) -- (1.75,0.75);
-                \draw[thick,<->] (-2.025,5.625) -- (-1.475,5.625);
+                %\draw[thick,<->] (-2.025,5.625) -- (-1.475,5.625);
                 \draw[thick,<->] (-0.275,5.625) -- ( 0.275,5.625);
-                \draw[thick,<->] ( 1.475,5.625) -- ( 2.025,5.625);
+                %\draw[thick,<->] ( 1.475,5.625) -- ( 2.025,5.625);
             \end{tikzpicture}
         }
     \end{minipage}
@@ -358,7 +379,8 @@
         \includegraphics[width=.9\textwidth]{fig/auditory-machine-learning-training}
 
         \begin{itemize}
-            \item Training modules for machine learning
+            \item Supports training
+            \item Trained models $\rightarrow$ database
         \end{itemize}
 
     \end{minipage}
@@ -366,7 +388,8 @@
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Conclusion on software}
+\begin{frame}{Conclusions}
+\framesubtitle{Software Development}
 
     Things that worked great:
     \begin{itemize}
@@ -384,24 +407,24 @@
         \item Make a workshop on the topic at the beginning
         \item Include a software engineer for complex software projects
         \item Try to avoid usage of closed-source software (e.g. Matlab)
-        \item Introduce how to write reproducible publications
+        \item Training on reproducible research and publications
     \end{itemize}
 
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Software depends on data}
+\begin{frame}{Requirements on Data Management}
 
     \begin{itemize}
-        \item Data is collected and changed during the project:
+        \item Data is collected and modified during the project:
             \begin{itemize}
                 \item HRIR/BRIR measurements for acoustic simulations
-                \item Data to train machine learning stages
+                \item Training of machine learning stages
                 \item Listening test results
             \end{itemize}
-        \item All partners need access to it
+        \item All partners need seamless access
         \item Not all data can be made publicly available
-        \item Can have different versions of the same data set
+        \item Potentially different versions of the same data set
     \end{itemize}
 
     \vspace{0.5cm}
@@ -411,15 +434,14 @@
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Possible approaches to data management}
+\begin{frame}{Possible Approaches to Data Management}
 
     \begin{itemize}
         \item \href{https://subversion.apache.org}{svn} works, but branching becomes buggy
-        \item \href{https://git-scm.com}{git} will produce out of memory errors on your server
+        \item \href{https://git-scm.com}{git} may produce out of memory errors on the server
             %(as git puts everything in working memory for packing before transmitting it)
-            \item \href{https://git-lfs.github.com}{Git Large File Storage} was released during the project, but
-            there was no working implementation to set it up on your own server
-        \item Similar implementations from the community, like
+            \item \href{https://git-lfs.github.com}{Git Large File Storage} was released during the project, \\ but lacked a working server implementation
+        \item Similar implementations from the community, \\ like
             \href{https://github.com/alebedev/git-media}{git-media},
             \href{https://git-annex.branchable.com}{git-annex}
         \item Commercial providers like
@@ -429,15 +451,15 @@
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]{Our solution to data management}
+\begin{frame}[fragile]{Our Solution to Data Management}
 
     \begin{itemize}
-        \item Used a \href{https://github.com/TWOEARS/git-media}{modified version
-            of git-media} for internal repo \\
-        \item Used \href{https://subversion.apache.org}{svn} and
+        \item \href{https://github.com/TWOEARS/git-media}{Modified version
+            of git-media} for internal repository \\
+        \item \href{https://subversion.apache.org}{svn} and
             \href{http://www.redmine.org}{Redmine} for
             \href{https://dev.qu.tu-berlin.de/projects/twoears-getdata/repository}{public
-            repo}
+            repository}
         \item In both cases you can download single files and subdirectories
     \end{itemize}
 
@@ -466,7 +488,8 @@
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Conclusion on data management}
+\begin{frame}{Conclusions}
+\framesubtitle{Data management}
 
     Things that worked ok:
     \begin{itemize}
@@ -487,5 +510,31 @@
 
 \end{frame}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Summary}
+
+Implementation of Open Science in Two!Ears
+\begin{itemize}
+\item internal management of research data by \href{http://www.redmine.org}{Redmine}
+\item open source software \& database, extensive documentation
+\item includes full version history
+\end{itemize}
+
+\vfill
+
+Some lessons learned...
+\begin{itemize}
+\item Open science requires training and qualification
+\item Seamless integration and usability of tools essential
+\item Counteracting evaluation measures
+\end{itemize}
+
+\vfill
+
+\url{github.com/twoears}\\[1ex]
+\url{github.com/spatialaudio}
+
+\end{frame}
 
 \end{document}
